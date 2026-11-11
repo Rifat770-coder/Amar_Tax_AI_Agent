@@ -10,7 +10,7 @@ A CrewAI assignment project that turns a taxpayer profile into a tax readiness r
 - Custom OpenAI-compatible API configured on the server through environment variables.
 - Offline mode, API status indicators, bounded AI execution and explicitly labeled fallback reports.
 - Markdown/JSON downloads, input validation and all assignment edge cases.
-- Cloud access-code protection, secret checks, GitHub CI and a Render deployment blueprint.
+- Public access with optional access-code protection, secret checks, GitHub CI and a Render deployment blueprint.
 
 ## Quick start — Windows
 
@@ -51,11 +51,11 @@ OPENAI_API_KEY=your-provider-key
 OPENAI_BASE_URL=https://your-api-server.example/v1
 AMAR_TAX_MODEL=exact-model-id-from-your-provider
 AMAR_TAX_CREW_TIMEOUT=60
-# Optional locally; required on Render:
+# Optional: leave unset for public access, including on Render.
 # AMAR_TAX_APP_PASSWORD=a-long-random-app-access-code
 ```
 
-Use the selected provider's own API key. Omit `OPENAI_BASE_URL` to use the standard OpenAI endpoint. The model must support tool calling and structured output. Credentials belong on the server; there are no API key fields in the UI. The app access code is different from the API key.
+Use the selected provider's own API key. Omit `OPENAI_BASE_URL` to use the standard OpenAI endpoint. The model must support tool calling and structured output. Credentials belong on the server; there are no API key fields in the UI. The app access code is different from the API key. For a public Render deployment, remove `AMAR_TAX_APP_PASSWORD` from the service environment and redeploy the updated code. Setting it enables the optional access-code screen.
 
 The UI reloads `.env` on each rerun; use **API আবার যাচাই করুন** after edits. CLI loads `.env` at startup. Local `.env` entries override matching shell values; removing an entry restores the original shell value. On Render, configure Environment settings instead of uploading `.env`.
 

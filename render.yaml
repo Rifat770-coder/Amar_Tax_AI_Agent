@@ -19,8 +19,6 @@ services:
         value: "true"
       - key: AMAR_TAX_CREW_TIMEOUT
         value: "60"
-      - key: AMAR_TAX_APP_PASSWORD
-        generateValue: true
       - key: OPENAI_API_KEY
         sync: false
       - key: OPENAI_BASE_URL

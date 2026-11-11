@@ -1,4 +1,4 @@
-"""Optional local access code; required for the public Render deployment."""
+"""Optional access code; an unset password allows public access."""
 import hashlib
 import hmac
 import os
@@ -9,9 +9,6 @@ import streamlit as st
 def require_access():
     password = os.getenv("AMAR_TAX_APP_PASSWORD", "")
     if not password:
-        if os.getenv("RENDER", "").lower() == "true":
-            st.error("Set AMAR_TAX_APP_PASSWORD in the server environment before enabling the public app.")
-            st.stop()
         return
     fingerprint = hashlib.sha256(password.encode()).hexdigest()
     if st.session_state.get("access_granted") == fingerprint:
