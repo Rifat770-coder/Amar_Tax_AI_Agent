@@ -105,6 +105,61 @@ p,li,label{line-height:1.65}
 [data-testid="stDownloadButton"] button:hover{background:#f2f6ff;border-color:#adc7ff;color:#245ee8}
 .side-note{border-color:#dce8fb;border-radius:10px;box-shadow:0 3px 12px #2764ef06}
 .slab-table th{background:#eef4ff;color:#5875a3}.slab-table tbody tr:hover{background:#f7faff}
+/* Reference palette, shared by every workspace view. Color-only overrides. */
+.stApp{background:radial-gradient(ellipse at 85% 0%,#eaf0ff99 0,transparent 45%),linear-gradient(135deg,#faf9ff,#f0f5ff);color:#0c1736}
+[data-testid="stHeader"]{background:#f5f6fff5}
+h1,h2,h3,.topbar h1,.section-heading h2{color:#0c1736}
+[data-testid="stCaptionContainer"],.section-heading p,.welcome p{color:#55658b}
+[data-testid="stSidebar"]{background:linear-gradient(160deg,#18223f 0%,#192647 70%,#203a77 100%);border-right-color:#304777;box-shadow:5px 0 28px #16317b0d;color:#f5f7ff}
+[data-testid="stSidebar"] [data-testid="stWidgetLabel"] p,[data-testid="stSidebar"] [data-testid="stRadio"] label p,[data-testid="stSidebar"] .sidebar-profile strong{color:#f5f7ff}
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"],.sidebar-profile small{color:#ced9f2}
+[data-testid="stSidebar"] hr{border-color:#465579}
+[data-testid="stSidebar"] [data-testid="stIconMaterial"]{color:#dce6ff}
+.avatar{background:linear-gradient(145deg,#2869ff,#143eaf);box-shadow:0 0 0 5px #314c7a55,0 6px 16px #08152c25}
+.profile-badge{background:#1554ce;border-color:#3672ec;color:#fff}
+.nav-label{color:#d5dff6}
+.st-key-workspace_navigation button,.side-nav a{color:#f3f6ff;background:transparent}
+.st-key-workspace_navigation button[kind="primary"],.side-nav a.active{background:linear-gradient(100deg,#2c70ff,#264bd4);color:#fff;box-shadow:inset 3px 0 0 #4585ff,0 3px 10px #07163226}
+.st-key-workspace_navigation button:hover,.side-nav a:hover{background:#294576;color:#fff;box-shadow:inset 3px 0 0 #6296ff}
+.st-key-workspace_navigation button[kind="primary"]:hover{background:linear-gradient(100deg,#387cff,#3058df)}
+.side-note{background:linear-gradient(120deg,#213456,#233c65);border-color:#41577f;box-shadow:0 3px 12px #07163216;color:#f5f7ff}
+.side-note p{color:#ced9f2}
+.st-key-page_header,.topbar{border-bottom-color:#dce3f5}
+.topbar .breadcrumb{background:#e5e5ff;border-color:#e0e2ff;color:#314c9b}
+.year-tag{background:#f8f9ff;border-color:#cfd8f0;color:#4a5d86}
+.top-action,.st-key-create_report button,[data-testid="stFormSubmitButton"] button,button[kind="primary"]{background:linear-gradient(135deg,#1268ff,#0044d5);border-color:#0755f5;color:#fff;box-shadow:0 5px 14px #0755f524}
+.st-key-create_report button:hover,[data-testid="stFormSubmitButton"] button:hover{background:linear-gradient(135deg,#2878ff,#0640c1);border-color:#0044d5;box-shadow:0 7px 20px #0755f538;color:#fff}
+.section-heading:before{background:linear-gradient(#0755f5,#a8bfff)}
+[class*="st-key-kpi_"]{background:linear-gradient(135deg,#f2f6ff,#e8efff)!important;border-color:#ffffff!important;border-top-color:#dbe6ff!important;box-shadow:0 5px 16px #354a8010}
+[class*="st-key-kpi_"]:hover{border-color:#c8d6f6!important;box-shadow:0 10px 26px #354a801c}
+.st-key-kpi_net_tax{background:linear-gradient(135deg,#f0f5ff,#e2ecff)!important;border-top-color:#dbe6ff!important}
+.st-key-kpi_gross_tax{background:linear-gradient(135deg,#f7f3ff,#ede8ff)!important;border-top-color:#e9dfff!important}
+.st-key-kpi_rebate{background:linear-gradient(135deg,#f1fcfa,#dcf5ef)!important;border-top-color:#d7f3e9!important}
+.st-key-kpi_total_income{background:linear-gradient(135deg,#fffaf4,#fff0df)!important;border-top-color:#ffead2!important}
+[data-testid="stMetricLabel"] p{color:#0c1736}
+[data-testid="stMetricValue"]{color:#0c1736}
+.st-key-kpi_net_tax [data-testid="stMetricValue"]{color:#0645cf}
+.st-key-kpi_gross_tax [data-testid="stMetricValue"]{color:#340e89}
+.st-key-kpi_rebate [data-testid="stMetricValue"]{color:#075636}
+[class*="st-key-kpi_"] button{background:#ffffff40;border-top-color:#ffffff80;color:#0755f5}
+.st-key-kpi_gross_tax button{color:#7840e9}.st-key-kpi_rebate button{color:#079b59}.st-key-kpi_total_income button{color:#b65b09}
+[class*="st-key-kpi_"] button:not(:disabled):hover{background:#ffffff99;color:#0044d5}
+.st-key-tax_gauge,.st-key-income_chart,.st-key-slab_panel,[data-testid="stVerticalBlockBorderWrapper"]>[data-testid="stVerticalBlock"],[data-testid="stForm"]{background:linear-gradient(145deg,#ffffffd9,#f5f7ff);border-color:#ffffff!important;box-shadow:0 5px 20px #354a800a}
+.panel-title{color:#0c1736;border-bottom-color:#dfe5f5}.panel-title>span,.income-column small{color:#55658b}
+.chart-legend i{background:#0755f5}.income-cell{background:#e8eef9;border-color:#dfe6f5}
+.income-cell.filled{background:linear-gradient(135deg,#40a3ff,#1955e5);border-color:#3588f8}
+.income-column:hover .income-cell.filled{background:#0755f5}.income-column strong{color:#354a73}
+.gauge-wrap svg path:nth-of-type(1){stroke:#d2daea}.gauge-wrap svg path:nth-of-type(2){stroke:#0755f5}.gauge-wrap svg path:nth-of-type(3){stroke:#a990f0}.gauge-wrap svg text{fill:#0c1736}.gauge-wrap svg text:last-child{fill:#55658b}
+[data-testid="stNumberInput"] input,[data-testid="stTextInput"] input,[data-baseweb="select"]>div{background:#f7f9ff;color:#0c1736}
+[data-testid="stWidgetLabel"] p,.form-section{color:#354a73}.form-section{border-top-color:#dfe5f5}
+[data-baseweb="tab-list"]{border-bottom-color:#dfe5f5}[data-baseweb="tab"]{color:#55658b}[data-baseweb="tab"][aria-selected="true"]{color:#0755f5}[data-baseweb="tab-highlight"]{background:#0755f5}
+[data-testid="stDownloadButton"] button{background:#e6f9f0;border-color:#54c995;color:#075636}
+[data-testid="stDownloadButton"] button:hover{background:#d4f4e5;border-color:#1eae72;color:#06452d}
+.api-status.connected,[data-testid="stAlert"][data-baseweb="notification"]:has([data-testid="stAlertContentSuccess"]){background:linear-gradient(100deg,#e6faf0,#d5f3ec);border-color:#8bdfb8;color:#064b32}
+.connected .api-light{background:#17ac58;box-shadow:0 0 0 4px #1aaa6915,0 0 8px #1aaa6925}
+.api-status.disconnected{background:linear-gradient(100deg,#fff0f3,#fff6f7);border-color:#edb4c1;color:#a52543}
+.slab-table th{background:#e9edff;color:#485d88}.slab-table td{color:#25385e;border-bottom-color:#dfe5f5}.slab-table tbody tr:hover{background:#eef2ff}
+.welcome{background:#f6f8ff;border-color:#ccd8f0}.welcome .symbol{color:#0755f5}
 @media(prefers-reduced-motion:reduce){[class*="st-key-kpi_"],.st-key-workspace_navigation button,.st-key-create_report button,[data-testid="stFormSubmitButton"] button{transition:none!important;transform:none!important}}
 @media(max-width:1000px){.block-container{padding:4.5rem 1rem 3rem}.income-chart{gap:8px}.topbar h1{font-size:18px}[data-testid="stMetricValue"]{font-size:22px}.topbar-actions{gap:6px}}
 @media(max-width:640px){.topbar{align-items:flex-start}.year-tag{display:none}.income-chart{gap:5px}.income-column strong,.income-column small{font-size:9px}.panel-title{font-size:11px}.block-container{padding-top:4.5rem}.slab-table th,.slab-table td{padding:9px 6px;font-size:10px}}
