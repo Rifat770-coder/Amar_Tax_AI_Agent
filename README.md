@@ -2,6 +2,8 @@
 
 [**Live app — Amar Tax**](https://amar-tax-ai-agent.onrender.com/)
 
+[**Watch demo video**](https://drive.google.com/file/d/1JpMhAp76dVdF2kfJKyWsxArMmZauK04P/view?usp=sharing)
+
 # Amar Tax — AI Tax Readiness Agent
 
 A CrewAI assignment project that turns a taxpayer profile into a tax readiness report using the supplied **simulated Bangladesh 2026–27 database**. It includes an English Markdown table, a four-line Bangla summary, document checklist, slab calculation and compliance review. It is an educational project, not a real tax-filing service.
