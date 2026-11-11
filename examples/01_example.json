@@ -1,0 +1,5 @@
+{
+  "age":34,"gender":"female","profession":"software engineer",
+  "income_sources":[{"kind":"salaried","amount":1200000},{"kind":"freelancer","amount":300000}],
+  "investment":200000,"location":"dhaka_chattogram_city","has_tin":true
+}

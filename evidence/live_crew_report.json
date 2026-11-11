@@ -1,0 +1,82 @@
+{
+  "profile": {
+    "age": 34,
+    "gender": "female",
+    "profession": "software engineer",
+    "income_sources": [
+      {
+        "kind": "salaried",
+        "amount": "1200000"
+      },
+      {
+        "kind": "freelancer",
+        "amount": "300000"
+      }
+    ],
+    "investment": "200000",
+    "location": "dhaka_chattogram_city",
+    "has_tin": true,
+    "disabled": false,
+    "freedom_fighter": false,
+    "wants_independent_filing": true,
+    "claims_required_to_file": false
+  },
+  "classification": {
+    "category": "Female",
+    "threshold": "400000",
+    "minimum_tax": "5000",
+    "filing_mandatory": true,
+    "can_file_independently": true,
+    "warnings": []
+  },
+  "calculation": {
+    "total_income": "1500000",
+    "gross_tax": "140000.00",
+    "allowable_investment": "200000",
+    "rebate": "30000.00",
+    "minimum_tax_applied": "5000",
+    "net_tax": "110000.00",
+    "slabs": [
+      {
+        "amount": "100000",
+        "rate": "0.05",
+        "tax": "5000.00"
+      },
+      {
+        "amount": "400000",
+        "rate": "0.1",
+        "tax": "40000.0"
+      },
+      {
+        "amount": "500000",
+        "rate": "0.15",
+        "tax": "75000.00"
+      },
+      {
+        "amount": "100000",
+        "rate": "0.2",
+        "tax": "20000.0"
+      }
+    ]
+  },
+  "documents": {
+    "checklist": [
+      "TIN Certificate",
+      "NID Copy",
+      "Bank Statement",
+      "Foreign Remittance Proof",
+      "Client Invoices",
+      "Investment Certificates (DPS/Sanchaypatra)",
+      "Bank Interest Certificate",
+      "Salary Certificate",
+      "Employer Details"
+    ],
+    "warnings": []
+  },
+  "review": {
+    "status": "Passed",
+    "findings": []
+  },
+  "mode": "CrewAI (four sequential LLM agents)",
+  "rules_source": "Local DB (simulated 2026-27)"
+}

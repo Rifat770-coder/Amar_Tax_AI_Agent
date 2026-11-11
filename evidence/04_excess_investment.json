@@ -1,0 +1,71 @@
+{
+  "profile": {
+    "age": 40,
+    "gender": "male",
+    "profession": "business",
+    "income_sources": [
+      {
+        "kind": "business",
+        "amount": "800000"
+      }
+    ],
+    "investment": "1000000",
+    "location": "rest_of_country",
+    "has_tin": true,
+    "disabled": false,
+    "freedom_fighter": false,
+    "wants_independent_filing": true,
+    "claims_required_to_file": false
+  },
+  "classification": {
+    "category": "General",
+    "threshold": "350000",
+    "minimum_tax": "3000",
+    "filing_mandatory": true,
+    "can_file_independently": true,
+    "warnings": [
+      "Investment exceeds income, please verify."
+    ]
+  },
+  "calculation": {
+    "total_income": "800000",
+    "gross_tax": "40000.00",
+    "allowable_investment": "160000.0",
+    "rebate": "24000.00",
+    "minimum_tax_applied": "3000",
+    "net_tax": "16000.00",
+    "slabs": [
+      {
+        "amount": "100000",
+        "rate": "0.05",
+        "tax": "5000.00"
+      },
+      {
+        "amount": "350000",
+        "rate": "0.1",
+        "tax": "35000.0"
+      }
+    ]
+  },
+  "documents": {
+    "checklist": [
+      "TIN Certificate",
+      "NID Copy",
+      "Bank Statement",
+      "Trade License",
+      "Profit & Loss Statement",
+      "Balance Sheet",
+      "Investment Certificates (DPS/Sanchaypatra)",
+      "Bank Interest Certificate"
+    ],
+    "warnings": []
+  },
+  "review": {
+    "status": "Flagged",
+    "findings": [
+      "Investment exceeds income, please verify."
+    ]
+  },
+  "mode": "offline (deterministic; no LLM agents)",
+  "rules_source": "Local DB (simulated 2026-27)"
+}

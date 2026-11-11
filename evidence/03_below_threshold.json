@@ -1,0 +1,59 @@
+{
+  "profile": {
+    "age": 45,
+    "gender": "male",
+    "profession": "salaried",
+    "income_sources": [
+      {
+        "kind": "salaried",
+        "amount": "300000"
+      }
+    ],
+    "investment": "0",
+    "location": "other_city_corporation",
+    "has_tin": true,
+    "disabled": false,
+    "freedom_fighter": false,
+    "wants_independent_filing": true,
+    "claims_required_to_file": true
+  },
+  "classification": {
+    "category": "General",
+    "threshold": "350000",
+    "minimum_tax": "4000",
+    "filing_mandatory": false,
+    "can_file_independently": true,
+    "warnings": [
+      "Filing is not mandatory under this simulated income-only rule; no minimum tax applies at or below the threshold.",
+      "Your required-to-file claim conflicts with the simulated income threshold."
+    ]
+  },
+  "calculation": {
+    "total_income": "300000",
+    "gross_tax": "0.00",
+    "allowable_investment": "0",
+    "rebate": "0.00",
+    "minimum_tax_applied": "0",
+    "net_tax": "0.00",
+    "slabs": []
+  },
+  "documents": {
+    "checklist": [
+      "TIN Certificate",
+      "NID Copy",
+      "Bank Statement",
+      "Salary Certificate",
+      "Employer Details"
+    ],
+    "warnings": []
+  },
+  "review": {
+    "status": "Flagged",
+    "findings": [
+      "Filing is not mandatory under this simulated income-only rule; no minimum tax applies at or below the threshold.",
+      "Your required-to-file claim conflicts with the simulated income threshold."
+    ]
+  },
+  "mode": "offline (deterministic; no LLM agents)",
+  "rules_source": "Local DB (simulated 2026-27)"
+}

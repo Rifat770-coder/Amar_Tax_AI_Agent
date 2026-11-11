@@ -1,0 +1,6 @@
+{
+  "age":45,"gender":"male","profession":"salaried",
+  "income_sources":[{"kind":"salaried","amount":300000}],
+  "investment":0,"location":"other_city_corporation","has_tin":true,
+  "claims_required_to_file":true
+}

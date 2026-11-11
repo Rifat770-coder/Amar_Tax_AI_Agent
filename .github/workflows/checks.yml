@@ -1,0 +1,30 @@
+name: Project checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install uv==0.13.7
+      - run: uv sync --frozen --extra ui --extra crew --extra dev
+      - run: uv run --no-sync python scripts/security_check.py
+      - run: uv run --no-sync pytest -q
+        env:
+          OTEL_SDK_DISABLED: "true"
+      - name: Dependency vulnerability report
+        id: audit
+        continue-on-error: true
+        run: uv tool run pip-audit --path .venv/lib/python3.12/site-packages --format json --output dependency-audit.json
+      - name: Report dependency findings
+        if: steps.audit.outcome == 'failure'
+        run: echo "::warning::Dependency audit has advisories or could not complete. Read SECURITY.md and the audit artifact."
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dependency-audit
+          path: dependency-audit.json

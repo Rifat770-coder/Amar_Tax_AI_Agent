@@ -1,0 +1,5 @@
+{
+  "age":40,"gender":"male","profession":"salaried",
+  "income_sources":[{"kind":"salaried","amount":-50000}],
+  "location":"rest_of_country","has_tin":true
+}

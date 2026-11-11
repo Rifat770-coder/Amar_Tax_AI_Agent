@@ -1,0 +1,72 @@
+{
+  "profile": {
+    "age": 16,
+    "gender": "male",
+    "profession": "freelancer",
+    "income_sources": [
+      {
+        "kind": "freelancer",
+        "amount": "500000"
+      }
+    ],
+    "investment": "0",
+    "location": "dhaka_chattogram_city",
+    "has_tin": false,
+    "disabled": false,
+    "freedom_fighter": false,
+    "wants_independent_filing": true,
+    "claims_required_to_file": false
+  },
+  "classification": {
+    "category": "General",
+    "threshold": "350000",
+    "minimum_tax": "5000",
+    "filing_mandatory": true,
+    "can_file_independently": false,
+    "warnings": [
+      "Minor cannot file independently; guardian assistance is required."
+    ]
+  },
+  "calculation": {
+    "total_income": "500000",
+    "gross_tax": "10000.00",
+    "allowable_investment": "0",
+    "rebate": "0.00",
+    "minimum_tax_applied": "5000",
+    "net_tax": "10000.00",
+    "slabs": [
+      {
+        "amount": "100000",
+        "rate": "0.05",
+        "tax": "5000.00"
+      },
+      {
+        "amount": "50000",
+        "rate": "0.1",
+        "tax": "5000.0"
+      }
+    ]
+  },
+  "documents": {
+    "checklist": [
+      "TIN Registration",
+      "TIN Certificate",
+      "NID Copy",
+      "Bank Statement",
+      "Foreign Remittance Proof",
+      "Client Invoices"
+    ],
+    "warnings": [
+      "No TIN: complete TIN Registration before filing."
+    ]
+  },
+  "review": {
+    "status": "Flagged",
+    "findings": [
+      "Minor cannot file independently; guardian assistance is required.",
+      "No TIN: complete TIN Registration before filing."
+    ]
+  },
+  "mode": "offline (deterministic; no LLM agents)",
+  "rules_source": "Local DB (simulated 2026-27)"
+}

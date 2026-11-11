@@ -1,0 +1,16 @@
+{
+  "tax_year": "2026-27",
+  "filing_deadline": "2026-11-30",
+  "thresholds": {"general":350000,"female":400000,"senior_65_plus":400000,"disabled":475000,"freedom_fighter":500000},
+  "slabs_after_threshold": [{"limit":100000,"rate":0.05},{"limit":400000,"rate":0.10},{"limit":500000,"rate":0.15},{"limit":500000,"rate":0.20},{"limit":null,"rate":0.25}],
+  "minimum_tax": {"dhaka_chattogram_city":5000,"other_city_corporation":4000,"rest_of_country":3000},
+  "investment_rebate": {"rate":0.15,"max_investment_percent_of_income":0.20},
+  "required_docs": {
+    "common":["TIN Certificate","NID Copy","Bank Statement"],
+    "salaried":["Salary Certificate","Employer Details"],
+    "business":["Trade License","Profit & Loss Statement","Balance Sheet"],
+    "freelancer":["Foreign Remittance Proof","Client Invoices"],
+    "landlord":["Rent Agreement","Municipal Tax Receipt"],
+    "investor":["Investment Certificates (DPS/Sanchaypatra)","Bank Interest Certificate"]
+  }
+}

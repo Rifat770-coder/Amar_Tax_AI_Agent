@@ -1,0 +1,27 @@
+[project]
+name = "amar-tax"
+version = "1.0.0"
+description = "Assignment-only Bangladesh tax readiness crew"
+requires-python = ">=3.11,<3.14"
+dependencies = ["pydantic>=2.10,<3", "python-dotenv>=1.0,<2"]
+
+[project.optional-dependencies]
+ui = ["streamlit>=1.40,<2"]
+crew = ["crewai>=1.15.17,<2"]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+amar-tax = "amar_tax.cli:main"
+
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+amar_tax = ["data/*.json", "data/*.css"]
+
+[tool.setuptools.packages.find]
+include = ["amar_tax*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

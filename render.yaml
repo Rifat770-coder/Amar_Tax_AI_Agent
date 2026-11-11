@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: amar-tax
+    runtime: python
+    plan: free
+    buildCommand: uv sync --frozen --no-dev --extra ui --extra crew
+    startCommand: .venv/bin/python -m streamlit run app.py --server.address=0.0.0.0 --server.port=$PORT --server.headless=true
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: UV_VERSION
+        value: 0.13.7
+      - key: PYTHONUTF8
+        value: "1"
+      - key: PYTHONIOENCODING
+        value: utf-8
+      - key: OTEL_SDK_DISABLED
+        value: "true"
+      - key: CREWAI_TELEMETRY_DISABLED
+        value: "true"
+      - key: AMAR_TAX_CREW_TIMEOUT
+        value: "60"
+      - key: AMAR_TAX_APP_PASSWORD
+        generateValue: true
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_BASE_URL
+        sync: false
+      - key: AMAR_TAX_MODEL
+        sync: false

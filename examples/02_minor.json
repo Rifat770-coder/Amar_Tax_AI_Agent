@@ -1,0 +1,5 @@
+{
+  "age":16,"gender":"male","profession":"freelancer",
+  "income_sources":[{"kind":"freelancer","amount":500000}],
+  "investment":0,"location":"dhaka_chattogram_city","has_tin":false
+}
