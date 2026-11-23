@@ -39,11 +39,19 @@ def render_markdown(report: Report, db: dict) -> str:
         lines.append("| No income above threshold | 0% | 0.00 BDT |")
     lines += ["", "## Review findings", ""]
     lines += ["- " + f for f in r.findings] if r.findings else ["- All source-of-truth checks passed."]
-    filing = "রিটার্ন দাখিল বাধ্যতামূলক" if c.filing_mandatory else "রিটার্ন দাখিল বাধ্যতামূলক নয়"
-    lines += ["", "## বাংলা সারসংক্ষেপ", "",
-              f"এই অ্যাসাইনমেন্টের সরলীকৃত নিয়ম অনুযায়ী {filing}।  ",
-              f"মোট আয় {bdt(t.total_income)}; হিসাব অনুযায়ী প্রদেয় কর {bdt(t.net_tax)}।  ",
-              "তালিকার কাগজপত্র প্রস্তুত করুন এবং টিআইএন না থাকলে নিবন্ধন করুন।  ",
-              ("যাচাইয়ে সতর্কতা পাওয়া গেছে; রিপোর্টের সতর্কবার্তাগুলো দেখুন।" if r.status == "Flagged" else
-               "যাচাই সম্পন্ন হয়েছে; এটি শুধু অনুশীলনের জন্য, প্রকৃত কর পরামর্শ নয়।"), ""]
+    lines += ["", "## বাংলা সারসংক্ষেপ", "", render_bangla_summary(report), ""]
     return "\n".join(lines)
+
+
+def render_bangla_summary(report: Report) -> str:
+    filing = "রিটার্ন দাখিল বাধ্যতামূলক" if report.classification.filing_mandatory else "রিটার্ন দাখিল বাধ্যতামূলক নয়"
+    calculation = report.calculation
+    review = ("যাচাইয়ে সতর্কতা পাওয়া গেছে; রিপোর্টের সতর্কবার্তাগুলো দেখুন।"
+              if report.review.status == "Flagged" else
+              "যাচাই সম্পন্ন হয়েছে; এটি শুধু অনুশীলনের জন্য, প্রকৃত কর পরামর্শ নয়।")
+    return "  \n".join([
+        f"এই অ্যাসাইনমেন্টের সরলীকৃত নিয়ম অনুযায়ী {filing}।",
+        f"মোট আয় {bdt(calculation.total_income)}; হিসাব অনুযায়ী প্রদেয় কর {bdt(calculation.net_tax)}।",
+        "তালিকার কাগজপত্র প্রস্তুত করুন এবং টিআইএন না থাকলে নিবন্ধন করুন।",
+        review,
+    ])

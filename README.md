@@ -1,4 +1,4 @@
-![Amar Tax dashboard](docs/Screenshot%202026-11-11%20211056.png)
+![Amar Tax dashboard](docs/Dashboard.png)
 
 [**Live app — Amar Tax**](https://amar-tax-ai-agent.onrender.com/)
 

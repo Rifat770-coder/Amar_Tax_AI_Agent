@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<script>
+  function send(type, data = {}) {
+    window.parent.postMessage({ isStreamlitMessage: true, type, ...data }, window.location.origin);
+  }
+
+  let lastReadKey;
+  let reportedFailure = false;
+  window.addEventListener("message", (event) => {
+    if (event.source !== window.parent || event.origin !== window.location.origin ||
+        event.data?.type !== "streamlit:render") return;
+
+    const { storage_key: key, write, report } = event.data.args;
+    try {
+      if (write) {
+        if (report === null) {
+          sessionStorage.removeItem(key);
+        } else {
+          sessionStorage.setItem(key, JSON.stringify(report));
+        }
+      } else if (lastReadKey !== key) {
+        lastReadKey = key;
+        const stored = sessionStorage.getItem(key);
+        let restored = null;
+        if (stored !== null) {
+          try {
+            restored = JSON.parse(stored);
+          } catch {
+            sessionStorage.removeItem(key);
+          }
+        }
+        send("streamlit:setComponentValue", { value: { report: restored }, dataType: "json" });
+      }
+    } catch {
+      if (!reportedFailure) {
+        reportedFailure = true;
+        send("streamlit:setComponentValue", { value: { unavailable: true }, dataType: "json" });
+      }
+    }
+  });
+
+  send("streamlit:componentReady", { apiVersion: 1 });
+  send("streamlit:setFrameHeight", { height: 0 });
+</script>
+</html>
