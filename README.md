@@ -71,7 +71,31 @@ The UI reloads `.env` on each rerun; use **API আবার যাচাই ক�
 
 **Dashboard → Create report → Taxpayer profile → Generate → Dashboard results.**
 
-The sidebar opens separate views. Analytics, report, calculation and documents use the same session report without rerunning agents. Submitted profile values are restored when editing. Downloads are available on Dashboard and Tax report. Reports disappear after a new browser session or server restart; there is no persistent user account database.
+The sidebar opens separate views. Analytics, report, calculation and documents use the same report without rerunning agents. The latest report and submitted profile are restored after a refresh in the same browser tab. Downloads are available on Dashboard and Tax report. Browser tab storage is temporary, and the app has no persistent user account database.
+
+## System architecture
+
+```mermaid
+flowchart TD
+    Web["Streamlit app"] --> Validate["Pydantic profile validation"]
+    CLI["CLI with JSON input"] --> Validate
+    Validate --> Mode{"Calculation mode"}
+    Rules["Local simulated tax rules · tax_db.json"] --> Engine["Deterministic Decimal tax engine"]
+    Mode -->|Offline| Engine
+    Mode -->|CrewAI| Crew["Classifier → Calculator → Organizer → Reviewer"]
+    Crew <-->|Model requests and responses| Provider["OpenAI-compatible API"]
+    Crew <-->|Tax tools and final verification| Engine
+    Crew -->|Verified output| Report["Structured tax readiness report"]
+    Crew -.->|Failure with fallback enabled| Engine
+    Engine -->|Offline or flagged fallback| Report
+    Report --> Views["Dashboard, analytics, report, calculation and documents"]
+    Report --> Files["Markdown and JSON"]
+    Report -->|Web only| Storage["Browser tab storage · restore on refresh"]
+```
+
+- **Input and rules.** The Streamlit form and CLI both validate profiles with `models.py`. The packaged `tax_db.json` supplies the simulated rules. The CLI can verify a remote rules copy against the bundled file.
+- **Execution.** `engine.py` calculates offline reports with Decimal arithmetic. In CrewAI mode, `crew.py` runs four sequential agents that call the deterministic tax tools. The web app runs the crew in a time-limited worker through `service.py` and `runner.py`. Provider or verification failures trigger a flagged offline report when fallback is enabled. The CLI's `--strict-crew` option returns an error instead.
+- **Output and storage.** The web views share a structured report. The latest web report is saved to the current tab's `sessionStorage` and restored after a refresh. The web app offers Markdown and JSON downloads, and the CLI writes both formats to disk.
 
 ## Agent design
 
