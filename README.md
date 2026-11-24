@@ -2,7 +2,7 @@
 
 [**Live app — Amar Tax**](https://amar-tax-ai-agent.onrender.com/)
 
-[**Watch demo video**](https://drive.google.com/file/d/1JpMhAp76dVdF2kfJKyWsxArMmZauK04P/view?usp=sharing)
+[**Watch demo video**](https://drive.google.com/file/d/1iUCT8w0tBdC0wUWgFZhbIlTRcjAVy2B9/view?usp=sharing)
 
 # Amar Tax — AI Tax Readiness Agent
 
